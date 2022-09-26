@@ -5,6 +5,7 @@ import com.hclcortez.parkingcontrol.models.ParkingSpot;
 import com.hclcortez.parkingcontrol.repositories.ParkingSpotRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ public class DeleteParkingSpotService {
     }
 
 
+    @Transactional
     public void exec(ParkingSpot parkingSpot){
         this.parkingSpotRepository.delete(parkingSpot);
     }
