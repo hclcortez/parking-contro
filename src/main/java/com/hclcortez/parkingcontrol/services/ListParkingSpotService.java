@@ -2,6 +2,8 @@ package com.hclcortez.parkingcontrol.services;
 
 import com.hclcortez.parkingcontrol.models.ParkingSpot;
 import com.hclcortez.parkingcontrol.repositories.ParkingSpotRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +17,8 @@ public class ListParkingSpotService {
         this.parkingSpotRepository = parkingSpotRepository;
     }
 
-    public List<ParkingSpot> exec(){
-         return this.parkingSpotRepository.findAll();
+    public Page<ParkingSpot> exec(Pageable pageable){
+         return this.parkingSpotRepository.findAll(pageable);
     }
 
 }
